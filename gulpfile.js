@@ -10,20 +10,15 @@ const uglify     = require('gulp-uglify')
 const buffer     = require('vinyl-buffer')
 const reload     = browserSync.reload
 
+let bundler = browserify({
+    entries: 'assets/js/app.js',
+    debug: true
+}) .transform(babelify, { presets: ['es2015'] })
+
 
 let bundleApp = () => {
     
-    // Init the bundler
-    let bundler = browserify({
-        entries: 'assets/js/app.js',
-        debug: true
-    })
-    // transform babelify pass it the preset
-    .transform(babelify, {
-        presets: ['es2015']
-    })
-    // then call bundle
-    .bundle()
+    bundler.bundle()
     // listen for errors (and log them using gutil.log)
     .on('error', gutil.log)
     // then use the source function and pass it the path to the app.js file
