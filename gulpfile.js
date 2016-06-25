@@ -26,7 +26,7 @@ let bundleApp = () => {
     // Buffer (dunno why but that's the fix)
     .pipe(buffer())
     // uglify the output
-    .pipe(uglify())
+    // .pipe(uglify())
     // then gulp.dest it
     .pipe(gulp.dest('public/js/'))
     // finally reload the page

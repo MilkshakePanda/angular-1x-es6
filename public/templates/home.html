@@ -4,4 +4,22 @@
 
     <p>Here, you will find a lot of useful information regarding boring stuff blablabla</p>
 
+    <button ng-click="main.getStuff()">Get Stuff Bro</button>
+
+    <article>
+    
+        <h1>Photos will be displayed here</h1>
+        
+        <div ng-repeat="photo in main.photos">
+
+           <div>
+                <p>PhotoID: {{photo.id}}</p>
+                <p>{{photo.title}}</p>
+                <img ng-src="{{photo.thumbnailUrl}}">
+           </div>  
+        
+        </div>
+    
+    </article>
+
 </div>
