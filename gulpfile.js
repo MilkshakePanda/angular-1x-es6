@@ -9,6 +9,8 @@ const browserSync = require('browser-sync')
 const uglify     = require('gulp-uglify')
 const buffer     = require('vinyl-buffer')
 const reload     = browserSync.reload
+const sass       = require("gulp-sass")
+
 
 let bundler = browserify({
     entries: 'assets/js/app.js',
@@ -26,7 +28,7 @@ let bundleApp = () => {
     // Buffer (dunno why but that's the fix)
     .pipe(buffer())
     // uglify the output
-    // .pipe(uglify())
+    .pipe(gutil.env.type === "production" ? uglify() : gutil.noop())
     // then gulp.dest it
     .pipe(gulp.dest('public/js/'))
     // finally reload the page
@@ -47,6 +49,17 @@ gulp.task('browser-sync', () => {
     })
 })
 
+gulp.task("sass", () => {
+
+    return gulp.src("./assets/sass/**/*.sass")
+    .pipe(sass({
+        outputStyle: 'compressed',
+    }).on('error', sass.logError))
+    .pipe(gulp.dest("./public/css"))
+    .pipe(reload({stream: true}))
+
+})
+
 // Scripts Task
 gulp.task('scripts', () => bundleApp() )
 
@@ -54,8 +67,9 @@ gulp.task('scripts', () => bundleApp() )
 gulp.task('watch', () => {
 
     gulp.watch(['assets/js/**/*.js'], ['scripts'])
+    gulp.watch(['assets/js/**/*.sass'], ['sass'])
 
 })
 
-gulp.task('default', ['browser-sync', 'scripts', 'watch'])
+gulp.task('default', ['browser-sync', 'scripts', 'sass','watch'])
 
