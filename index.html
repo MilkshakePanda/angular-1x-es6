@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>What The Func - Front End Kit</title>
+    <meta name="description" content="">   
     <link rel="stylesheet" href="/public/css/main.css">
-    <!-- add responsive meta tags along with description tag etc -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body ng-app="app">
     
@@ -13,5 +14,11 @@
     <main ui-view></main>
 
     <script src="public/js/app.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-XXXXX-Y','auto');
+        ga('send','pageview')
+    </script>
 </body>
 </html>
