@@ -51,9 +51,10 @@ gulp.task('browser-sync', () => {
 
 gulp.task("sass", () => {
 
-    return gulp.src("./assets/sass/**/*.sass")
+    return gulp.src("./assets/sass/main.sass")
     .pipe(sass({
         outputStyle: 'compressed',
+        includePaths: ['assets/sass/']
     }).on('error', sass.logError))
     .pipe(gulp.dest("./public/css"))
     .pipe(reload({stream: true}))
@@ -67,7 +68,7 @@ gulp.task('scripts', () => bundleApp() )
 gulp.task('watch', () => {
 
     gulp.watch(['assets/js/**/*.js'], ['scripts'])
-    gulp.watch(['assets/js/**/*.sass'], ['sass'])
+    gulp.watch(['assets/sass/**/*.sass'], ['sass'])
 
 })
 
