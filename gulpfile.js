@@ -15,7 +15,7 @@ const sass       = require("gulp-sass")
 let bundler = browserify({
     entries: 'assets/js/app.js',
     debug: true
-}) .transform(babelify, { presets: ['es2015'] })
+}) .transform(babelify, { presets: ['es2015', 'react'] })
 
 
 let bundleApp = () => {
