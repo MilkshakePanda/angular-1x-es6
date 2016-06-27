@@ -1,12 +1,2 @@
-import angular from 'angular'
-import uirouter from 'angular-ui-router'
+console.log("Hello Bro")  
 
-import { routing } from  './config'
-import { MainController } from './controllers/testController'
-import {TestService} from './services/TestService'
-
-angular.module('app', [uirouter])
-    .config(routing)
-    .controller('MainController', MainController)
-    .service('TestService', TestService)
-    
