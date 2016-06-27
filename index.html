@@ -7,22 +7,27 @@
     <link rel="stylesheet" href="/public/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body ng-app="app">
+<body>
     
-    <h1>What The Func Starter Kit</h1>
-
-    <h2>This is a boilerplate for you to use on your front-end projects.</h2>
+    <main>
     
-    <p>It comes with Babel already configured so you can write and enjoy the newest Javascript features and goodies. Thanks to gulp, sass is already installed and will compile all of your stylesheets into one compressed file to increase performance and load time. You will also enjoy automatic browser reloading with BrowserSync, and finally. This starter kit supports JSX, so if you're a React JS dev, you will be able to use it with no problems at all.</p>
+        <div class="container">
+        
+            <header>
+            
+                <h1>What The Func Starter Kit</h1>
 
-    <main ui-view></main>
+                <h2>This is a boilerplate for you to use on your front-end projects.</h2>
+                
+            </header>
+
+            <p>It comes with Babel already configured so you can write and enjoy the newest Javascript features and goodies. Thanks to gulp, sass is already installed and will compile all of your stylesheets into one compressed file to increase performance and load time. You will also enjoy automatic browser reloading with BrowserSync, and finally. This starter kit supports JSX, so if you're a React JS dev, you will be able to use it with no problems at all.</p>
+            
+            </div>
+
+
+    </main>
 
     <script src="public/js/app.js"></script>
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-        ga('create','UA-XXXXX-Y','auto');
-        ga('send','pageview')
-    </script>
 </body>
 </html>
